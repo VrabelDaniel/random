@@ -1,5 +1,25 @@
 public class Main {
     public static void main(String[] args) {
+        int[] arr = new int[4];
+        try {
+            int i = arr[4];
+
+            System.out.println("Inside try block");
+        }
+//        catch (Exception ex) {
+//            System.out.println("Exception caught in catch block");
+//        }
+        catch (NullPointerException ex) {
+            System.out.println("NullPointerException caught in catch block");
+            throw new KesmarkiException("This is a custom exception message");
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("ArrayIndexOutOfBoundsException caught in catch block");
+        } finally {
+            System.out.println("Finally block executed");
+        }
+
+        System.out.println("Outside try-catch clause");
+
         Post post = new Post.Builder()
                 .title("Builder Pattern in Java")
                 .text("The Builder pattern is a creational design pattern that allows for the step-by-step construction of complex objects.")
@@ -20,7 +40,7 @@ public class Main {
         System.out.println("END");
     }
 
-    private static void lifoExample(){
+    private static void lifoExample() {
         int firstNum = 10;
 
         if (firstNum > 0) {
